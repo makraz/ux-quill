@@ -1,0 +1,22 @@
+{% block quill_widget %}
+    {%- set controller_name = (attr['data-controller']|default('') ~ ' makraz--ux-quill--quill')|trim -%}
+    {% set data_set = "data-makraz--ux-quill--quill" %}
+
+    <div class="quill-container"
+         data-controller="{{ controller_name }}"
+         {{ data_set }}-options-value="{{ attr['data-quill-options'] }}"
+    >
+        <div data-live-ignore>
+            <input type="hidden"
+                   value="{{ value }}"
+                    {{ block('widget_attributes') }}
+                   {{ data_set }}-target="input"
+            >
+
+            <div class="quill-editor"
+                 {{ data_set }}-target="editorContainer"
+            >
+            </div>
+        </div>
+    </div>
+{% endblock %}
